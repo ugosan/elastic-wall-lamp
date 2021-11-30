@@ -7,6 +7,7 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
+
 #define PIN            D6
 
 #define NUMPIXELS      85
@@ -364,6 +365,30 @@ void applyConfig(String input) {
   turn_on_hour =  source_turn_on_hour;
   turn_off_hour =  source_turn_off_hour;
   
+
+  bubbleA_color[0] = source_mode_standard_bubbleA_color_0;
+  bubbleA_color[1] = source_mode_standard_bubbleA_color_1;
+  bubbleA_color[2] = source_mode_standard_bubbleA_color_2;
+
+  bubbleB_color[0] = source_mode_standard_bubbleB_color_0;
+  bubbleB_color[1] = source_mode_standard_bubbleB_color_1;
+  bubbleB_color[2] = source_mode_standard_bubbleB_color_2;
+
+  bubbleC_color[0] = source_mode_standard_bubbleC_color_0;
+  bubbleC_color[1] = source_mode_standard_bubbleC_color_1;
+  bubbleC_color[2] = source_mode_standard_bubbleC_color_2;
+
+  bubbleD_color[0] = source_mode_standard_bubbleD_color_0;
+  bubbleD_color[1] = source_mode_standard_bubbleD_color_1;
+  bubbleD_color[2] = source_mode_standard_bubbleD_color_2;
+
+  bubbleE_color[0] = source_mode_standard_bubbleE_color_0;
+  bubbleE_color[1] = source_mode_standard_bubbleE_color_1;
+  bubbleE_color[2] = source_mode_standard_bubbleE_color_2;
+
+  bubbleF_color[0] = source_mode_standard_bubbleF_color_0;
+  bubbleF_color[1] = source_mode_standard_bubbleF_color_1;
+  bubbleF_color[2] = source_mode_standard_bubbleF_color_2;
 }
 
 void flashBuiltInLed(int times){
