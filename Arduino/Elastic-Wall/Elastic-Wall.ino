@@ -123,7 +123,10 @@ void loop(void) {
   }else{
     turnOff();
     flashBuiltInLed(3);
-    delay(60000);
+    delay(30000);
+    fetchConfig();
+    updateCurrentTime();
+  
     
   }
 
