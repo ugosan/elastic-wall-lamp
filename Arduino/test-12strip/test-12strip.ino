@@ -8,7 +8,7 @@
 
 #define PIN            D6
 
-#define NUMPIXELS      12
+#define NUMPIXELS      86
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -39,14 +39,16 @@ void setup(void) {
   Serial.begin(115200);
   
   pixels.begin();
-  pixels.setBrightness(205);
+  pixels.setBrightness(55);
 }
 
 void loop(void) {
-  //allWhite();
-
+  allWhite();
+  delay(5000);
+  allOff();
+  rainbow(50);
   
-  //elasticStandard();
+  elasticStandard();
 
  
   /*
@@ -64,7 +66,7 @@ void loop(void) {
   }
 */
 
-  inhale_exhale_fire();
+  //inhale_exhale_fire();
   
   
   /*
@@ -89,12 +91,12 @@ void loop(void) {
 
 
 void inhale_exhale_fire(){
- for (int i = 0; i < 1000; i++) {
+ for (int i = 0; i < 100; i++) {
   flame(i);
   pixels.show();
   delay(1);
  }
- for (int i = 1000; i > 0; i--) {
+ for (int i = 100; i > 0; i--) {
   flame(i);
   pixels.show();
   delay(1);
@@ -104,12 +106,12 @@ void inhale_exhale_fire(){
 
 void flame(int i){
   
-   setBubbleColor(bubbleA, sizeof(bubbleA)/sizeof(int), pixels.ColorHSV( map(i,0,1000, 5000, 0)));
-   setBubbleColor(bubbleB, sizeof(bubbleB)/sizeof(int), pixels.ColorHSV( map(i,0,1000, 2000, 3000)));
-   setBubbleColor(bubbleC, sizeof(bubbleC)/sizeof(int), pixels.ColorHSV( map(i,0,1000, 1000, 2000)));
-   setBubbleColor(bubbleD, sizeof(bubbleD)/sizeof(int), pixels.ColorHSV( map(i,0,1000, 0, 5000)));
-   setBubbleColor(bubbleE, sizeof(bubbleE)/sizeof(int), pixels.ColorHSV( map(i,0,1000, 4000, 6000)));
-   setBubbleColor(bubbleF, sizeof(bubbleE)/sizeof(int), pixels.ColorHSV( map(i,0,1000, 6000, 10000)));
+   setBubbleColor(bubbleA, sizeof(bubbleA)/sizeof(int), pixels.ColorHSV( map(i,0,100, 5000, 0)));
+   setBubbleColor(bubbleB, sizeof(bubbleB)/sizeof(int), pixels.ColorHSV( map(i,0,100, 2000, 3000)));
+   setBubbleColor(bubbleC, sizeof(bubbleC)/sizeof(int), pixels.ColorHSV( map(i,0,100, 1000, 2000)));
+   setBubbleColor(bubbleD, sizeof(bubbleD)/sizeof(int), pixels.ColorHSV( map(i,0,100, 0, 5000)));
+   setBubbleColor(bubbleE, sizeof(bubbleE)/sizeof(int), pixels.ColorHSV( map(i,0,100, 4000, 6000)));
+   setBubbleColor(bubbleF, sizeof(bubbleE)/sizeof(int), pixels.ColorHSV( map(i,0,100, 6000, 10000)));
 }
 
 
@@ -145,6 +147,15 @@ void allWhite(){
   uint16_t i, j;
   for (i = 0; i < pixels.numPixels(); i++) {
       pixels.setPixelColor(i, 255, 255, 255);
+      pixels.show();
+      delay(50);
+  }
+}
+
+void allOff(){
+  uint16_t i, j;
+  for (i = 0; i < pixels.numPixels(); i++) {
+      pixels.setPixelColor(i, 0, 0, 0);
       pixels.show();
       delay(50);
   }
