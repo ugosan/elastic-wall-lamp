@@ -1,5 +1,3 @@
-# Elastic Wall Lamp
-
 
 <kbd>![](./img/lamp.gif)</kbd>
 
